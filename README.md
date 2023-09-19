@@ -33,6 +33,6 @@ You must open the `.ndjson` file in your export directory. You search a phone nu
 
 ## result
 
-![Capture 1](capture_1.png)
+![Capture 1](capture_1.jpg)
 
-![Capture 2](capture_2.png)
+![Capture 2](capture_2.jpg)
