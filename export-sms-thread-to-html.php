@@ -41,11 +41,11 @@ $export_dir = dirname($argv[4]);
 @mkdir($export_dir . "/export_data");
 $e = "<table>";
 foreach ($l as $date => $line) {
-    $e .= "<tr><td colspan=2 style='background-color:#CCC;'></td></tr>";
+    $e .= "<tr><td colspan=3 style='background-color:#CCC;'></td></tr>";
     if (!array_key_exists("type", $line) || $line["type"] == 1) {
-        $e .= "<tr>";
+        $e .= "<tr><td></td>";
     } else {
-        $e .= "<tr style='color:#006699;font-weight:bold;'>";
+        $e .= "<tr style='color:#006699;font-weight:bold;'><td style='background-color:#006699;font-weight:bold;'>&nbsp;</td>";
     }
 
 
