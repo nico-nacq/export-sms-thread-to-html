@@ -49,10 +49,10 @@ foreach ($l as $date => $line) {
     }
 
 
-    $e .= "<td style='border:1px solid #000'>";
+    $e .= "<td style='white-space:nowrap;padding:10px;padding-right:20px;'>";
     $e .= gmdate("Y-m-d H:i:s", (int)$date / 1000);
     $e .= "</td>";
-    $e .= "<td style='border:1px solid #000'>";
+    $e .= "<td style='padding:10px;'>";
     if (array_key_exists("__parts", $line)) {
         foreach ($line["__parts"] as $part) {
             if (array_key_exists("text", $part)) {
@@ -67,7 +67,7 @@ foreach ($l as $date => $line) {
                 $data_path = $argv[2] . "/" . $data_path_array[1];
                 if (file_exists($data_path)) {
                     copy($data_path, $export_dir . "/export_data/" . $data_path_array[1]);
-                    $e .= '<img src="' . $export_dir . "/export_data/" . $data_path_array[1] . '" width=300>';
+                    $e .= '<img src="' . $export_dir . "/export_data/" . $data_path_array[1] . '" width=300><br>';
                 }
             }
         }
