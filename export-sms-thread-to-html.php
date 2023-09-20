@@ -50,7 +50,7 @@ foreach ($l as $date => $line) {
 
 
     $e .= "<td style='white-space:nowrap;padding:10px;padding-right:20px;'>";
-    $e .= gmdate("Y-m-d H:i:s", (int)$date / 1000);
+    $e .= date("Y-m-d H:i:s", (int)$date / 1000);
     $e .= "</td>";
     $e .= "<td style='padding:10px;'>";
     if (array_key_exists("__parts", $line)) {
