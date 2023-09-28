@@ -26,16 +26,18 @@ php export-sms-thread-to-html.php [params]
  - path to data dir
  - thread_id
  - HTML file output path
+ - date from : optional
+ - date to : optional
 
 ### Example
 ```shell
 cd ~/export-sms-thread-to-html
-php export-sms-thread-to-html.php ~/downloads/export/messages.ndjson ~/downloads/export/messages-2023-09-18/data/ 6 export.html
-```
+# export all messages after 2023-05-07
+php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html 2023-05-07 
 
-### Thread id
+# export year 2022
+php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html 2022-01-01 2022-12-31 
 
-You must open the `.ndjson` file in your export directory. You search a phone number. At the begining of the line, you'll find the `thread_id` corresponding to the thread with this number.
 
 ## result
 

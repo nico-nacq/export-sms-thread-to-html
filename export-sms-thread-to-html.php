@@ -31,9 +31,22 @@ foreach (file($argv[1]) as $line) {
         if ($date < 1000000000000) {
             $date *= 1000;
         }
-        $l[$date] = $line;
-    }
-}
+        $date_in_range = true;
+        if (array_key_exists(4, $argv)) {
+            $date_from = date("U", strtotime($argv[4])) * 1000;
+            if ($date < $date_from) {
+                $date_in_range = false;
+            }
+        }
+        if (array_key_exists(5, $argv)) {
+            $date_to = date("U", strtotime($argv[5])) * 1000;
+            if ($date > $date_to) {
+                $date_in_range = false;
+            }
+        }
+        if ($date_in_range) {
+            $l[$date] = $line;
+        }
 ksort($l);
 
 $export_dir = dirname($argv[4]);
