@@ -18,8 +18,14 @@ export-sms-thread-to-html
 
 ```shell
 cd ~/export-sms-thread-to-html
-php export-sms-thread-to-html.php [path to ndjson file] [path to data dir] [thread_id] [HTML file output path]
+php export-sms-thread-to-html.php [params]
 ```
+
+### Params
+ - path to ndjson file
+ - path to data dir
+ - thread_id
+ - HTML file output path
 
 ### Example
 ```shell
