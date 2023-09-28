@@ -22,6 +22,7 @@ php export-sms-thread-to-html.php [params]
 ```
 
 ### Params
+ - path to the dir containing messages.ndjson file
  - part of the phone number (or thread-id)
  - HTML file output path
  - date from : optional
@@ -30,6 +31,11 @@ php export-sms-thread-to-html.php [params]
 ### Example
 ```shell
 cd ~/export-sms-thread-to-html
+
+
+# export all message from thread 6
+php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html
+
 # export all messages after 2023-05-07
 php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html 2023-05-07 
 

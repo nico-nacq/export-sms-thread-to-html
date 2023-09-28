@@ -1,22 +1,19 @@
 <?php
 
-if (!is_array($argv) || sizeof($argv) < 5) {
-    die("Please pass the file path, data path,  the thread_id and the output path as param");
+if (!is_array($argv) || sizeof($argv) < 4) {
+    die("\nPlease pass the file path, data path,  the thread_id and the output path as param\n");
 }
 
-if (!file_exists($argv[1])) {
-    die("Error : Can't find " . $argv[1]);
+if (!file_exists($argv[1] . "messages.ndjson")) {
+    die("\nError : Can't find " . $argv[1] . "messages.ndjson" . "\n");
 }
 
-if (!is_dir($argv[2])) {
-    die("Error : Can't find " . $argv[2]);
-}
-foreach (file($argv[1]) as $line) {
+foreach (file($argv[1] . "messages.ndjson") as $line) {
     $line = json_decode($line, true);
     break;
 }
 if (!is_array($line) || !sizeof($line)) {
-    die("Error : Can't read " . $argv[1]);
+    die("\nError : Can't read " . $argv[1] . "messages.ndjson\n");
 }
 $threads = [];
 if (substr($argv[2], 0, 7) == "thread-") {
@@ -47,7 +44,7 @@ if (sizeof($threads) > 1) {
 }
 
 $l = [];
-foreach (file($argv[1]) as $line) {
+foreach (file($argv[1] . "messages.ndjson") as $line) {
     $line = json_decode($line, true);
     if (in_array($line["thread_id"], $threads)) {
         if (!array_key_exists("date", $line)) {
@@ -76,9 +73,10 @@ foreach (file($argv[1]) as $line) {
             $l[$date] = $line;
         }
     }
+}
 ksort($l);
 
-$export_dir = dirname($argv[4]);
+$export_dir = dirname($argv[3]);
 
 @mkdir($export_dir . "/export_data");
 $e = "<table>";
@@ -106,7 +104,7 @@ foreach ($l as $date => $line) {
             ) {
                 $data_path = $part["_data"];
                 $data_path_array = explode("/app_parts/", $data_path);
-                $data_path = $argv[2] . "/" . $data_path_array[1];
+                $data_path = $argv[1] . "/" . $data_path_array[1];
                 if (file_exists($data_path)) {
                     copy($data_path, $export_dir . "/export_data/" . $data_path_array[1]);
                     $e .= '<img src="' . $export_dir . "/export_data/" . $data_path_array[1] . '" width=300><br>';
@@ -125,4 +123,4 @@ foreach ($l as $date => $line) {
 $e .= "<table>";
 
 
-file_put_contents($argv[4], $e);
+file_put_contents($argv[3], $e);
