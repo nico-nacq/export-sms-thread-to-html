@@ -22,9 +22,7 @@ php export-sms-thread-to-html.php [params]
 ```
 
 ### Params
- - path to ndjson file
- - path to data dir
- - thread_id
+ - part of the phone number (or thread-id)
  - HTML file output path
  - date from : optional
  - date to : optional
@@ -38,6 +36,14 @@ php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html 2023
 # export year 2022
 php export-sms-thread-to-html.php ~/downloads/export/ 601234567 export.html 2022-01-01 2022-12-31 
 
+# if there is multiple threads with the same number you have to choose one of them like this. (the thread-id will be provided by the script)
+php export-sms-thread-to-html.php ~/downloads/export/ thread-194 export.html
+
+```
+
+### Phone number
+
+Keep in mind that sometime numbers are stored like this `+33601234567`, sometime like this `0601234567`. You must enter just a part of the number. The last part. Like this : `01234567` or `601234567`. So that the correct thread can be found.
 
 ## result
 
