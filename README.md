@@ -2,7 +2,7 @@
 
 Export a clean human readable HTML page from a SMS export. The export has to be made by [SMS Import / Export ](https://github.com/tmo1/sms-ie). The zip file must be extracted on the computer.
 
-MMS are converted to simple text. Images are copied to a directory `export_data` next to the html page.
+html MMS are converted to simple text. Images are copied to a directory `export_data` next to the html page and are visible in the html export.
 
 ## Installation 
 
