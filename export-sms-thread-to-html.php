@@ -124,3 +124,4 @@ $e .= "<table>";
 
 
 file_put_contents($argv[3], $e);
+echo "\nExport done to " . $argv[3] . ".\n" . sizeof($l) . " lines\n";
