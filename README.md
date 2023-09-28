@@ -4,6 +4,12 @@ Export a clean human readable HTML page from a SMS export. The export has to be 
 
 html MMS are converted to simple text. Images are copied to a directory `export_data` next to the html page and are visible in the html export.
 
+## Requirement
+
+ - php (7.1+)
+
+
+
 ## Installation 
 
 ```shell
